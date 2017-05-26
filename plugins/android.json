@@ -1,0 +1,31 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-mfp": {
+            "PACKAGE_NAME": "tone.analyzer.app"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "tone.analyzer.app"
+        }
+    },
+    "dependent_plugins": {
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "tone.analyzer.app"
+        },
+        "cordova-plugin-dialogs": {
+            "PACKAGE_NAME": "tone.analyzer.app"
+        },
+        "cordova-plugin-globalization": {
+            "PACKAGE_NAME": "tone.analyzer.app"
+        },
+        "cordova-plugin-okhttp": {
+            "PACKAGE_NAME": "tone.analyzer.app"
+        }
+    }
+}
