@@ -21,7 +21,7 @@
 		 var dataString="id="+id+"&title="+title+"&duration="+duration+"&price="+price+"&update=";
 		 $.ajax({
 			 type: "POST",
-			 url:"http://localhost:8080/phonegap/database/update.php",
+			 url:"http://localhost/phonegap/database/update.php",
 			 data: dataString,
 			 crossDomain: true,
 			 cache: false,
@@ -45,7 +45,7 @@
  var dataString="id="+id+"&select=";
  $.ajax({
  type: "GET",
- url:"http://localhost:8080/phonegap/database/delete.php",
+ url:"http://localhost/phonegap/database/delete.php",
  data: dataString,
  crossDomain: true,
  cache: false,

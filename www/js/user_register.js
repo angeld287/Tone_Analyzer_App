@@ -1,11 +1,12 @@
 function star(){
 	$(document).ready(function(){
 		 $("#insert").click(function(){
-			 var url="http://localhost:8080/tone_analyzer/database/user_management/user_data_valid.php";
+			 var url="http://localhost/tone_analyzer/database/user_management/user_data_valid.php";
 				//ajax method
 				 var name=$("#name").val();
 				 var email=$("#email").val();
 				 //validando si el usuario existe
+				alert("datw "+name+email);
 				 $.getJSON(url,function(result){
 					 $.each(result, function(i, field){
 						 var email_found=field.email;
@@ -19,12 +20,12 @@ function star(){
 							 //GetJsonData(0);
 			        		 return false;
 						 }
-						 register.bindEvents(name,email,false);
 						// $("#div_name").append('<input type="text" id="name_validation" value="yes"/>');
 						 //GetJsonData(1);
 						 return true;
 					 });
 				 });
+				 register.bindEvents(name,email,false);
 		 });
 	});
 }
@@ -51,7 +52,7 @@ var register = {
         				 		
         						$.ajax({
         			   	   	   		 type: "POST",
-        			   	   	   		 url: "http://localhost:8080/tone_analyzer/database/user_management/register.php",
+        			   	   	   		 url: "http://localhost/tone_analyzer/database/user_management/register.php",
         			   	   	   		 data: dataString,
         			   	   	   		 crossDomain: true,
         			   	   	   		 cache: false,
