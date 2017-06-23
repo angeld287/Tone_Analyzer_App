@@ -14,7 +14,7 @@
  {
  $.ajax({
  type: "POST",
- url:"http://localhost/phonegap/database/insert.php",
+ url:"http://localhost:8080/phonegap/database/insert.php",
  data: dataString,
  crossDomain: true,
  cache: false,
@@ -30,7 +30,8 @@
  {
  alert("error");
  }
- }
+ },
+ error: function(){alert("dasdsa");}
  });
  }return false;
  });
