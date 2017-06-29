@@ -21,27 +21,36 @@ $(function(){
 				if($("#loginForm").valid()) {
 					var name=$("#name").val();
 					var password=$("#password").val();
-					var url = 'http://localhost:8080/tone_analyzer/database/login/validate_login.php'
-					var dataString="name="+name+"&password="+password;
+					var url = 'http://localhost:8080/tone_analyzer/database/login/validate_user.php'
+					var dataString="name="+name+"&password="+password+"&id=";
+					//alert(dataString);
 					$.ajax({
 						type: "GET",
 						url: url,
 						data: dataString,
+						dataType: "json",
 						crossDomain: true,
 						cache: false,
 						beforeSend: function(){},
-						success: function(data){
-									alert(data);
-									if(data == "true"){
-										alert("entra login");
-										getUserData(name)
-										
-									}else if(data == "false"){
+						success: function(result){
+							//alert(result);
+									if(result == 0){
 										alert("login mal");
+										
+									}else {
+										result.forEach(function(loc) { 
+											//alert(loc.name+" == "+ name +" && "+loc.password+" == "+password);
+												if(loc.name == name || loc.email == name){
+													localStorage.setItem("userToken", loc.password+loc.name+loc.id);
+													localStorage.setItem("userName", loc.name);
+													localStorage.setItem("userId", loc.id);
+													window.location.replace("../home/home.html");
+												}
+										 });
 									}
 							 	},
-						error: function(data){
-									alert("Error de servicio xampp");
+						error: function(request, status, error){
+									alert(request.responseText+" | "+status+" | "+error);
 								}
 					});
 				}
@@ -49,16 +58,3 @@ $(function(){
 		}
 	});
 });
-
-function getUserData(nameOrmail){
-	//localStorage.setItem("userToken", "Alen");
-	//localStorage.getItem("name"); //will return Alen
-	alert("getUserData function");
-	var url = "http://localhost:8080/tone_analyzer/database/login/validate_user.php";
-	 $.getJSON(
-		url,
-		function(result){
-			alert(result);
-		}
-		);
-}
